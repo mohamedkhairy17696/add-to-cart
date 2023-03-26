@@ -9,7 +9,7 @@ const Product = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
-  });
+  }, [dispatch]);
   return (
     <Container>
       <Row className="m-3">
