@@ -1,9 +1,10 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const AppNavbar = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -18,7 +19,7 @@ const AppNavbar = () => {
                 Products
               </Link>
               <Link to="/cart" className="navbar-brand">
-                Cart
+                Cart-{cart.length}
               </Link>
             </Nav>
           </Navbar.Collapse>
