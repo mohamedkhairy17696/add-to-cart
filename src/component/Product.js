@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../rtk/Slices/cart-slice";
 import { fetchProducts } from "../rtk/Slices/products-slice";
 const Product = () => {
   const products = useSelector((state) => state.products);
@@ -24,7 +25,12 @@ const Product = () => {
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>{product.price}</Card.Text>
-                <Button variant="primary">Add To Cart</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => dispatch(addToCart(product))}
+                >
+                  Add To Cart
+                </Button>
               </Card.Body>
             </Card>
           </Col>
